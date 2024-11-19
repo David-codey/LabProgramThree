@@ -12,6 +12,34 @@ class BinarySearchTree{
             T value;
         };
         treeNode* rootNode;
+        void insert(treeNode&* nodePtr, treeNode&* newNode){
+            if(nodePtr == nullptr){
+                nodePtr = newNode;
+            }else if(newNode->value < nodePtr->value){
+                insert(nodePtr->left, newNode);
+            }else{
+                insert(nodePtr->right, newNode);
+            }
+        }
+        void destroySubTree(treeNode* nodePtr){
+            if(nodePtr){
+                if(nodePtr->left){
+                    destroySubTree(nodePtr->left);
+                }
+                if(nodePtr->right){
+                    destroySubTree(nodePtr->right);
+                }
+                delete nodePtr;
+            }
+        }
+        void displayInOrder(treeNode* nodePtr) const{
+            if(nodePtr){
+                displayInOrder(nodePtr->left);
+                cout << nodePtr->root << endl;
+                displayInOrder(nodePtr->right);
+            }
+        }
+
     public:
         BinarySearchTree(){ // constructor with no parameters
             root = NULL;
@@ -27,17 +55,11 @@ class BinarySearchTree{
             newNode->left = newNode->right = nullptr;
             insert(root,newNode);
         }
-        void displayInOrder(treeNode* nodePtr) const{
-            if(nodePtr){
-                cout << nodePtr->root << endl;
-                displayInOrder(nodePtr->left);
-                displayInOrder(nodePtr->right);
-            }
-        }
         bool searchNode(T node){
             treeNode *nodePtr = root;
-            while(nodePtr){
-                if(nodePtr->value == node){
+            
+            while(nodePtr){// while  nodePtr exists
+                if(nodePtr->value == node){ // if found
                     return true;
                 }else if(node < nodePtr->value){
                     nodePtr = nodePtr->left;
