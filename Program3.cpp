@@ -15,8 +15,8 @@ int main(){
    if(!openPokedex){
     return 1; // file not found
    }else{
-        convertedPokeNum = to_string(pokeNum);
         do{
+            convertedPokeNum = to_string(pokeNum);
             getline(openPokedex,convertedPokeNum, '#');
             getline(openPokedex,pokeName, '#');
             Pokemon pokemon = Pokemon(pokeNum, pokeName);
