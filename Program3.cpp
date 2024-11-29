@@ -20,11 +20,11 @@ int main(){
             getline(openPokedex,convertedPokeNum, '#');
             getline(openPokedex,pokeName, '#');
             Pokemon pokemon = Pokemon(pokeNum, pokeName);
+            insertNode(pokemon);
             if(pokemon.getID(pokeNum) == pokemon.getID(pokeNum)){
                 cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
             }else{
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
-                insertNode(pokemon);
             }
 
         } while (!openPokedex.eof());
