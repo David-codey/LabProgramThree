@@ -15,10 +15,10 @@ class BinaryTree{
         void insert(treeNode** nodePtr, treeNode* newNode){
             if(nodePtr == nullptr){
                 *nodePtr = newNode;
-            }else if(newNode->value < *nodePtr->value){
-                insert(*nodePtr->left, newNode);
+            }else if(newNode->value < (*nodePtr)->value){
+                insert(&(*nodePtr)->left, newNode);
             }else{
-                insert(*nodePtr->right, newNode);
+                insert(&(*nodePtr)->right, newNode);
             }
         }
         void destroySubTree(treeNode* nodePtr){
@@ -35,7 +35,7 @@ class BinaryTree{
         void displayInOrder(treeNode* nodePtr) const{
             if(nodePtr){
                 displayInOrder(nodePtr->left);
-                cout << nodePtr->rootNode << endl;
+                cout << *nodePtr->rootNode << endl;
                 displayInOrder(nodePtr->right);
             }
         }
