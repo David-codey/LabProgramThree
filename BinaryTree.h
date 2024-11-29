@@ -72,4 +72,4 @@ class BinaryTree{
 
 };
 
-#endif BINARYSEARCHTREE_H
+#endif BINARYTREE_H
