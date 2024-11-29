@@ -12,7 +12,8 @@ int main(){
     return 1; // file not found
    }else{
         cout << "Reading Pokemon" << endl;
-        do{
+        convertedPokeNum = to_string(pokeNum);
+        while(getline(openPokedex,convertedPokeNum, '#')){
             openPokedex.ignore();
             convertedPokeNum = to_string(pokeNum);
             getline(openPokedex,convertedPokeNum, '#');
@@ -27,7 +28,7 @@ int main(){
             }
             numToDisplay++;
             cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;
-        } while (openPokedex >> pokeNum);
+        }
         openPokedex.close();
         //BT.displayInOrder();
     }
