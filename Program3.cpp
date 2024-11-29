@@ -1,5 +1,5 @@
 #include "Pokemon.h"
-#include "BinarySearchTree.h"
+#include "BinaryTree.h"
 using namespace std;
 
 int main(){
