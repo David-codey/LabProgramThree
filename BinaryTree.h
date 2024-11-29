@@ -35,7 +35,7 @@ class BinaryTree{
         void displayInOrder(treeNode* nodePtr) const{
             if(nodePtr){
                 displayInOrder(nodePtr->left);
-                cout << *nodePtr->rootNode << endl;
+                cout << (*nodePtr)->rootNode << endl;
                 displayInOrder(nodePtr->right);
             }
         }
