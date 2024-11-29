@@ -30,5 +30,7 @@ int main(){
         cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;
         openPokedex.close();
         BT.displayInOrder();
+    }
     return 0;
 }
+
