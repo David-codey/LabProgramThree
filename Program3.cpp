@@ -15,7 +15,7 @@ int main(){
         cout << "Reading Pokemon" << endl;
         convertedPokeNum = to_string(pokeNum); //converts the int into a string for reading
         while(getline(openPokedex,convertedPokeNum, '#')){ // gets the converted number
-            openPokedex.ignore();
+            //openPokedex.ignore();
             getline(openPokedex,pokeName, '#');// gets the pokemon name
             Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
             cout << pokemon.getName(pokeName) << pokemon.getID(pokeNum) << endl; // prints out test case
