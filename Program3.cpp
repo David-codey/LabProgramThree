@@ -12,14 +12,15 @@ int main(){
    if(!openPokedex){ // file not found
     return 1; 
    }else{ // file found
-        cout << "Reading Pokemon" << endl;
-        convertedPokeNum = to_string(pokeNum); //converts the int into a string for reading
-        while(getline(openPokedex,convertedPokeNum, '#')){ // gets the converted number
-            //openPokedex.ignore();
-            getline(openPokedex,pokeName, '#');// gets the pokemon name
-            Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
-            cout << pokemon.getName(pokeName) << pokemon.getID(pokeNum) << endl; // prints out test case
-            BT.insertNode(pokemon); // inserts in BT
+        cout << "Reading Pokemon" << endl; 
+    while(getline(openPokedex,convertedPokeNum, '#')){ // gets the converted number
+        cout << "Adding to Pokedex" << endl;
+        getline(openPokedex,pokeName, '#');// gets the pokemon name
+        pokeNum = stoi(convertedPokeNum);
+        Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
+        cout << "Added to Pokedex" << endl;
+        cout << pokemon.getName(pokeName) << pokemon.getID(pokeNum) << endl; // prints out test case
+        BT.insertNode(pokemon); // inserts in BT
             if(pokemon.getID(pokeNum) < pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
             }else{// if the node isn't empty
