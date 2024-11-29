@@ -55,6 +55,9 @@ class BinaryTree{
             newNode->left = newNode->right = nullptr;
             insert(&rootNode,newNode);
         }
+        void displayInOrder()const{
+            displayInOrder(rootNode);
+        }
         bool searchNode(T node){
             treeNode *nodePtr = rootNode;
             
