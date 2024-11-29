@@ -20,10 +20,10 @@ int main(){
             Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
             cout << pokemon.getName(pokeName) << pokemon.getID(pokeNum) << endl; // prints out test case
             BT.insertNode(pokemon); // inserts in BT
-            if(pokemon.getID(pokeNum) == pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
-                cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
-            }else{// if the node isn't empty
+            if(pokemon.getID(pokeNum) < pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
+            }else{// if the node isn't empty
+                cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
             }
             numToDisplay++; // adding up the pokemon added in
         }

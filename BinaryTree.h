@@ -4,36 +4,36 @@
 #include <iostream>
 
 template <typename T>
-class BinaryTree{
+class BinaryTree{ // class definition
     private: 
-        struct treeNode{
+        struct treeNode{ //struct for binary tree nodes
             treeNode* left;
             treeNode* right;
             T value;
         };
-        treeNode* rootNode;
+        treeNode* rootNode; // root
         void insert(treeNode** nodePtr, treeNode* newNode){
-            if(nodePtr == nullptr){
+            if(nodePtr == nullptr){ // if nodePtr equals null
                 *nodePtr = newNode;
-            }else if(newNode->value < (*nodePtr)->value){
+            }else if(newNode->value < (*nodePtr)->value){// if node has someting in the right 
                 insert(&(*nodePtr)->left, newNode);
-            }else{
+            }else{ //if node has something in the left
                 insert(&(*nodePtr)->right, newNode);
             }
         }
         void destroySubTree(treeNode* nodePtr){
-            if(nodePtr){
-                if(nodePtr->left){
+            if(nodePtr){// if there is a node pointer
+                if(nodePtr->left){ // if there is something in the left
                     destroySubTree(nodePtr->left);
                 }
-                if(nodePtr->right){
+                if(nodePtr->right){ // if there is something in the right
                     destroySubTree(nodePtr->right);
                 }
                 delete nodePtr;
             }
         }
         void displayInOrder(treeNode* nodePtr) const{
-            if(nodePtr){
+            if(nodePtr){ // if there is a node
                 displayInOrder(nodePtr->left);
                 cout << nodePtr->value << endl;
                 displayInOrder(nodePtr->right);
@@ -64,9 +64,9 @@ class BinaryTree{
             while(nodePtr){// while  nodePtr exists
                 if(nodePtr->value == node){ // if found
                     return true;
-                }else if(node < nodePtr->value){
+                }else if(node < nodePtr->value){ // if node is pointing left
                     nodePtr = nodePtr->left;
-                }else{
+                }else{ // if node is pointing right
                     nodePtr = nodePtr->right;
                 }
             }
