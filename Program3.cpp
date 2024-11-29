@@ -30,7 +30,7 @@ int main(){
         } while (!openPokedex.eof());
         cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;
         openPokedex.close();
-        BT.displayInOrder();
+        //BT.displayInOrder();
     }
     return 0;
 }
