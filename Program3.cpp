@@ -1,8 +1,4 @@
-#include "Pokemon.h"
 #include "BinaryTree.h"
-#include <ostream>
-#include <string>
-#include <iostream>
 using namespace std;
 
 int main(){

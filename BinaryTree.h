@@ -42,10 +42,10 @@ class BinaryTree{
 
     public:
         BinaryTree(){ // constructor with no parameters
-            root = NULL;
+            rootNode = NULL;
         }
         ~BinaryTree(){
-            destroySubTree(root);
+            destroySubTree(rootNode);
         }
         void insertNode(T tree){ // inserts the node 
             treeNode* newNode = nullptr;
@@ -53,10 +53,10 @@ class BinaryTree{
             newNode = new treeNode;
             newNode-> value = tree;
             newNode->left = newNode->right = nullptr;
-            insert(root,newNode);
+            insert(rootNode,newNode);
         }
         bool searchNode(T node){
-            treeNode *nodePtr = root;
+            treeNode *nodePtr = rootNode;
             
             while(nodePtr){// while  nodePtr exists
                 if(nodePtr->value == node){ // if found
