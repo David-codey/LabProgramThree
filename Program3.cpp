@@ -4,7 +4,7 @@ using namespace std;
 int main(){
    BinaryTree<Pokemon> BT;
    ifstream openPokedex;
-   int pokeNum, numToDisplay;
+   int pokeNum, numToDisplay = 0;
    string pokeName, convertedPokeNum;
     cout << "Opening Pokedex" << endl;
    openPokedex.open("pokedex.txt");
@@ -13,7 +13,7 @@ int main(){
    }else{
         cout << "Reading Pokemon" << endl;
         do{
-            int numToCount = 0;
+            openPokedex.ignore();
             convertedPokeNum = to_string(pokeNum);
             getline(openPokedex,convertedPokeNum, '#');
             getline(openPokedex,pokeName, '#');
@@ -25,11 +25,9 @@ int main(){
             }else{
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
             }
-            numToCount++;
-            numToCount = numToDisplay;
-            cout << numToCount << "Pokemon have been added to the Pokedex." << endl;
-        } while (!openPokedex.eof());
-        cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;
+            numToDisplay++;
+            cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;
+        } while (openPokedex >> pokeNum);
         openPokedex.close();
         //BT.displayInOrder();
     }
