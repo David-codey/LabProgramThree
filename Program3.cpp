@@ -6,29 +6,30 @@ int main(){
    ifstream openPokedex;
    int pokeNum, numToDisplay = 0;
    string pokeName, convertedPokeNum;
-    cout << "Opening Pokedex" << endl;
+
+    cout << "Opening Pokedex" << endl; // test case
    openPokedex.open("pokedex.txt");
-   if(!openPokedex){
-    return 1; // file not found
-   }else{
+   if(!openPokedex){ // file not found
+    return 1; 
+   }else{ // file found
         cout << "Reading Pokemon" << endl;
-        convertedPokeNum = to_string(pokeNum);
-        while(getline(openPokedex,convertedPokeNum, '#')){
+        convertedPokeNum = to_string(pokeNum); //converts the int into a string for reading
+        while(getline(openPokedex,convertedPokeNum, '#')){ // gets the converted number
             openPokedex.ignore();
-            getline(openPokedex,pokeName, '#');
-            Pokemon pokemon = Pokemon(pokeNum, pokeName);
-            cout << pokemon.getID(pokeNum) << pokemon.getName(pokeName) << endl;
-            BT.insertNode(pokemon);
-            if(pokemon.getID(pokeNum) == pokemon.getID(pokeNum)){
+            getline(openPokedex,pokeName, '#');// gets the pokemon name
+            Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
+            cout << pokemon << endl; // prints out test case
+            BT.insertNode(pokemon); // inserts in BT
+            if(pokemon.getID(pokeNum) == pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
                 cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
-            }else{
+            }else{// if the node isn't empty
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
             }
-            numToDisplay++;
-            cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;
+            numToDisplay++; // adding up the pokemon added in
         }
-        openPokedex.close();
-        //BT.displayInOrder();
+        cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;       
+        BT.displayInOrder(); // prints out Pokedex
+        openPokedex.close(); // closes the file
     }
     return 0;
 }
