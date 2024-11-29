@@ -15,8 +15,6 @@ int main(){
         convertedPokeNum = to_string(pokeNum);
         while(getline(openPokedex,convertedPokeNum, '#')){
             openPokedex.ignore();
-            convertedPokeNum = to_string(pokeNum);
-            getline(openPokedex,convertedPokeNum, '#');
             getline(openPokedex,pokeName, '#');
             Pokemon pokemon = Pokemon(pokeNum, pokeName);
             cout << pokemon.getID(pokeNum) << pokemon.getName(pokeName) << endl;
