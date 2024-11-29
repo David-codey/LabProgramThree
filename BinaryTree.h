@@ -1,10 +1,10 @@
-#ifndef BINARYSEARCHTREE_H
-#define BINARYSEARCHTREE_H
+#ifndef BINARYTREE_H
+#define BINARYTREE_H
 #include "Pokemon.h"
 #include <iostream>
 
 template <typename T>
-class BinarySearchTree{
+class BinaryTree{
     private: 
         struct treeNode{
             treeNode* left;
@@ -41,10 +41,10 @@ class BinarySearchTree{
         }
 
     public:
-        BinarySearchTree(){ // constructor with no parameters
+        BinaryTree(){ // constructor with no parameters
             root = NULL;
         }
-        ~BinarySearchTree(){
+        ~BinaryTree(){
             destroySubTree(root);
         }
         void insertNode(T tree){ // inserts the node 
