@@ -6,7 +6,7 @@ int main(){
    ifstream openPokedex;
    int pokeNum, numToDisplay;
    string pokeName, convertedPokeNum;
-
+    cout << "Opening Pokedex" << endl;
    openPokedex.open("pokedex.txt");
    if(!openPokedex){
     return 1; // file not found
