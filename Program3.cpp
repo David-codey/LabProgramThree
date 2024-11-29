@@ -11,6 +11,7 @@ int main(){
    if(!openPokedex){
     return 1; // file not found
    }else{
+        cout << "Reading Pokemon" << endl;
         do{
             int numToCount = 0;
             convertedPokeNum = to_string(pokeNum);
