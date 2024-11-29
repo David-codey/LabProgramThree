@@ -14,11 +14,11 @@ class BinaryTree{
         treeNode* rootNode;
         void insert(treeNode** nodePtr, treeNode* newNode){
             if(nodePtr == nullptr){
-                nodePtr = newNode;
-            }else if(newNode->value < nodePtr->value){
-                insert(nodePtr->left, newNode);
+                *nodePtr = newNode;
+            }else if(newNode->value < *nodePtr->value){
+                insert(*nodePtr->left, newNode);
             }else{
-                insert(nodePtr->right, newNode);
+                insert(*nodePtr->right, newNode);
             }
         }
         void destroySubTree(treeNode* nodePtr){
