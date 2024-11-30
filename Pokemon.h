@@ -37,7 +37,7 @@ public:
         return poke1.PokemonIndexNum == poke2.PokemonIndexNum;
     }
     friend bool operator==(const Pokemon& comparePokemon, const Pokemon& contrastPokemon){
-        return comparePokemon.PokemonIndexNum == contrastPokemon.PokemonIndexNum;
+        return comparePokemon.PokemonIndexNum  == contrastPokemon.PokemonIndexNum;
     }
 };
 

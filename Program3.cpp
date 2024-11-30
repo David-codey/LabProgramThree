@@ -14,20 +14,17 @@ int main(){
    }else{ // file found
         cout << "Reading Pokemon" << endl; 
     while(getline(openPokedex,convertedPokeNum, '#')){ // gets the converted number
-        cout << "Adding to Pokedex" << endl;
         getline(openPokedex,pokeName, '#');// gets the pokemon name
         pokeNum = stoi(convertedPokeNum);
         Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
-        cout << "Added to Pokedex"<< pokeNum << endl;
-        cout << pokemon.getName(pokeName) << pokemon.getID(pokeNum) << endl; // prints out test case
-        BT.searchNode(pokemon); // searches the binary tree for similar nodes
-            if(pokemon.getID(pokeNum) == pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
-            cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
-                //cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
-            }else{// if the node isn't empty
+            if(BT.searchNode(pokemon) == pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
+                //BT.searchNode(pokemon); // searches the binary tree for similar nodes
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
-                BT.insertNode(pokemon); // inserts in BT
-                //cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
+                BT.insertNode(pokemon);
+            }else{// if the node isn't empty
+                BT.searchNode(pokemon);
+                cout << "Oops!, This Pokemon with index" << pokemon.getID(pokeNum) << "is already in the Pokedex." << endl;
+                //BT.insertNode(pokemon); // inserts in BT
             }
             numToDisplay++; // adding up the pokemon added in
         }
