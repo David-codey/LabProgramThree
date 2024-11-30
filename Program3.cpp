@@ -17,7 +17,7 @@ int main(){
         getline(openPokedex,pokeName, '#');// gets the pokemon name
         pokeNum = stoi(convertedPokeNum);
         Pokemon pokemon = Pokemon(pokeNum, pokeName); // creates the pokemon
-            if(BT.searchNode(pokemon) == pokemon.getID(pokeNum)){ // if Pokemon's index number is the same as another
+            if(BT.searchNode(pokemon)){ // if Pokemon's index number is the same as another
                 //BT.searchNode(pokemon); // searches the binary tree for similar nodes
                 cout << "Inserting Pokemon with index" << pokemon.getID(pokeNum) << "into the Pokedex." << endl;
                 BT.insertNode(pokemon);
