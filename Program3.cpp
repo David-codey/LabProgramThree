@@ -27,7 +27,7 @@ int main(){
             }
             numToDisplay++; // adding up the pokemon added in
         }
-        cout << numToDisplay << "Pokemon have been added to the Pokedex." << endl;       
+        cout << numToDisplay << " Pokemon have been added to the Pokedex." << endl;       
         BT.displayInOrder(); // prints out Pokedex
         openPokedex.close(); // closes the file
     }
