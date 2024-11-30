@@ -34,7 +34,11 @@ public:
         output << "Pokemon #:" << pokemon.PokemonIndexNum << endl << "Pokemon Name:" << pokemon.PokemonName << endl;
     }
     friend bool operator<(const Pokemon& poke1, const Pokemon& poke2){
-        return poke1.PokemonIndexNum < poke2.PokemonIndexNum;
+        if(poke1.PokemonIndexNum < poke2.PokemonIndexNum){
+            return true;
+        }else{
+            return false;
+        }
     }
     friend bool operator==(const Pokemon& comparePokemon, const Pokemon& contrastPokemon){
         return comparePokemon.PokemonIndexNum == contrastPokemon.PokemonIndexNum;
