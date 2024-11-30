@@ -14,9 +14,9 @@ public:
         this->PokemonName = "None";
         this->PokemonIndexNum = 0;
     }
-    Pokemon(int, string){
-        this->setID(PokemonIndexNum);
-        this->setName(PokemonName);
+    Pokemon(int num, string name){
+        setName(name);
+        setID(num);
     }
     string getName(string){
         return PokemonName;
@@ -25,10 +25,10 @@ public:
         return PokemonIndexNum;
     }
     void setName(string name){
-        name = this->PokemonName;
+        this->PokemonName = name;
     }
     void setID(int number){
-        number = this->PokemonIndexNum;
+        this->PokemonIndexNum = number;
     }
    friend ostream& operator<<(ostream& output, const Pokemon& pokemon){
         output << "Pokemon #:" << pokemon.PokemonIndexNum << endl << "Pokemon Name:" << pokemon.PokemonName << endl;
