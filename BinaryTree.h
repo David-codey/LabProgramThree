@@ -13,7 +13,7 @@ class BinaryTree{ // class definition
         };
         treeNode* rootNode; // root
         void insert(treeNode** nodePtr, treeNode* newNode){
-            if(nodePtr == nullptr){ // if nodePtr equals null
+            if(*nodePtr == nullptr){ // if nodePtr equals null
                 *nodePtr = newNode;
             }else if(newNode->value < (*nodePtr)->value){// if node has someting in the right 
                 insert(&(*nodePtr)->left, newNode);
