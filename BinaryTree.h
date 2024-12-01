@@ -12,13 +12,13 @@ class BinaryTree{ // class definition
             T value;
         };
         treeNode* rootNode; // root
-        void insert(treeNode** nodePtr, treeNode* newNode){
-            if(*nodePtr == nullptr){ // if nodePtr equals null
-                *nodePtr = newNode;
-            }else if(newNode->value < (*nodePtr)->value){// if node has someting in the right 
-                insert(&(*nodePtr)->left, newNode);
+        void insert(treeNode*& nodePtr, treeNode*& newNode){
+            if(nodePtr == nullptr){ // if nodePtr equals null
+                nodePtr = newNode;
+            }else if(newNode->value < nodePtr->value){// if node has someting in the right 
+                insert(nodePtr->left, newNode);
             }else{ //if node has something in the left
-                insert(&(*nodePtr)->right, newNode);
+                insert(nodePtr->right, newNode);
             }
         }
         void destroySubTree(treeNode* nodePtr){
@@ -53,14 +53,13 @@ class BinaryTree{ // class definition
             newNode = new treeNode;
             newNode-> value = tree;
             newNode->left = newNode->right = nullptr;
-            insert(&rootNode,newNode);
+            insert(rootNode,newNode);
         }
         void displayInOrder()const{
             displayInOrder(rootNode);
         }
         bool searchNode(T node){
-            treeNode *nodePtr = rootNode;
-            
+            treeNode* nodePtr = rootNode;
             while(nodePtr){// while  nodePtr exists
                 if(nodePtr->value == node){ // if found
                     return true;

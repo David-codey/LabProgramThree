@@ -18,10 +18,10 @@ public:
         setName(name);
         setID(num);
     }
-    string getName(string){
+    string getName()const {
         return PokemonName;
     }
-    int getID(int){
+    int getID()const {
         return PokemonIndexNum;
     }
     void setName(string name){
@@ -30,14 +30,16 @@ public:
     void setID(int number){
         this->PokemonIndexNum = number;
     }
-   friend ostream& operator<<(ostream& output, const Pokemon& pokemon){
+    friend ostream& operator<<(ostream& output, const Pokemon &pokemon){
         output << "Pokemon #:" << pokemon.PokemonIndexNum << endl << "Pokemon Name:" << pokemon.PokemonName << endl;
+        return output;
+    };
+
+    bool operator<(const Pokemon& poke1){
+    return this->PokemonIndexNum < poke1.PokemonIndexNum;
     }
-    friend bool operator<(const Pokemon& poke1, const Pokemon& poke2){
-        return poke1.PokemonIndexNum < poke2.PokemonIndexNum;
-    }
-    friend bool operator==(const Pokemon& comparePokemon, const Pokemon& contrastPokemon){
-        return comparePokemon.PokemonIndexNum  == contrastPokemon.PokemonIndexNum;
+    bool operator==(const Pokemon& comparePokemon){
+        return this->PokemonIndexNum == comparePokemon.PokemonIndexNum;
     }
 };
 
